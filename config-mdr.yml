@@ -1,0 +1,39 @@
+map_file_name: data/den312d.map
+agents:
+- id: 1
+  motion_equation: 9
+
+- id: 2
+  motion_equation: 9
+
+- id: 3
+  motion_equation: 9
+
+- id: 4
+  motion_equation: 9
+
+- id: 5
+  motion_equation: 9
+
+- id: 6
+  motion_equation: 9
+
+- id: 7
+  motion_equation: 9
+
+- id: 8
+  motion_equation: 9
+
+- id: 9
+  motion_equation: 9
+
+- id: 10
+  motion_equation: 9
+
+- id: 11
+  motion_equation: 9
+
+
+permutations: 2
+robust_route: 1
+

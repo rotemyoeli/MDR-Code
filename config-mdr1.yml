@@ -1,0 +1,16 @@
+agents:
+- damage_steps: 3
+  id: 1
+  is_adversarial: true
+  motion_equation: 9
+- id: 2
+  motion_equation: 9
+- id: 3
+  motion_equation: 9
+- id: 4
+  motion_equation: 9
+- id: 5
+  motion_equation: 9
+map_file_name: data/orz302d.map
+permutations: 10
+robust_route: 3

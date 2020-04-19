@@ -1,0 +1,24 @@
+map_file_name: data/den312d.map
+agents:
+- id: 1
+  motion_equation: 9
+
+- id: 2
+  motion_equation: 9
+
+- id: 3
+  motion_equation: 9
+
+- id: 4
+  motion_equation: 9
+
+- id: 5
+  motion_equation: 9
+  is_adversarial: True
+  damage_steps: 2
+
+
+
+permutations: 2
+robust_route: 1
+

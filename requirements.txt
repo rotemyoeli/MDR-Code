@@ -1,0 +1,8 @@
+openpyxl
+pygame
+memoization
+numpy
+parameterized
+argh
+PyYAML
+jsonpickle

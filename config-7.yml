@@ -1,0 +1,46 @@
+map_file_name: data/Room1_56x55.txt
+agents:
+- id: 1
+  motion_equation: 9
+  goal_policy: 2
+  start_policy: 1
+#  start_cell: [2,51]
+#  goal_cell: [9,46]
+- id: 2
+  motion_equation: 9
+  goal_policy: 2
+  start_policy: 1
+#  start_cell: [3,52]
+#  goal_cell: [9,47]
+- id: 3
+  motion_equation: 9
+  goal_policy: 2
+  start_policy: 1
+#  start_cell: [1,52]
+#  goal_cell: [10,46]
+- id: 4
+  motion_equation: 9
+  goal_policy: 2
+  start_policy: 1
+#  start_cell: [2,50]
+#  goal_cell: [8,47]
+- id: 5
+  motion_equation: 9
+  goal_policy: 2
+  start_policy: 1
+
+- id: 6
+  motion_equation: 9
+  goal_policy: 2
+  start_policy: 1
+ 
+- id: 7
+  motion_equation: 9
+  goal_policy: 2
+  start_policy: 1
+
+
+# start: [39,33]
+# end: [3,3]
+permutations: 1
+robust_route: 1
