@@ -1,1 +1,1 @@
-e2e-parallel -p 1 --map-file-name C:\Users\rotem\Dropbox\Studies\Thesis\Code\MDR-Main\src\data\orz302d.map --max-adv-agent-ds 3 C:\Users\rotem\Dropbox\Studies\Thesis\Code\MDR-Main\src\config-mdr.yml
+e2e-parallel -p 1 --map-file-name C:\Users\rotemyo\PycharmProjects\MDR-Code\src\data\orz302d.map --max-adv-agent-ds 3 C:\Users\rotemyo\PycharmProjects\MDR-Code\src\config-mdr.yml

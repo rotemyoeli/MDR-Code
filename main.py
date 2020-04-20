@@ -845,6 +845,7 @@ def e2e_parallel(run_config_file_name: str, out_dir: str = None, random_seed=Non
     LOG.info(f'Detected {cores_count} cores!')
 
     print(run_config_file_name)
+    #rc1 = config.load('config-simple.yml')
     rc1 = config.load(run_config_file_name)
     if permutations is not None:
         rc1.permutations = permutations
@@ -868,7 +869,7 @@ def e2e_parallel(run_config_file_name: str, out_dir: str = None, random_seed=Non
     start_time = timeit.default_timer()
 
     max_agents = len(rc1.agents)
-    for swarm_ammount in range(2, max_agents+1):
+    for swarm_ammount in range(max_agents, max_agents+1): #(2, max_agents+1):
         rc = rc1
         # Make folders for number of agents
         swarm_out_dir = out_dir1 / str(len(rc.agents))
