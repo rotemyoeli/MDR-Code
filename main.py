@@ -869,7 +869,7 @@ def e2e_parallel(run_config_file_name: str, out_dir: str = None, random_seed=Non
     start_time = timeit.default_timer()
 
     max_agents = len(rc1.agents)
-    for swarm_ammount in range(max_agents, max_agents+1): #(2, max_agents+1):
+    for swarm_ammount in range(2, max_agents+1): #(max_agents, max_agents+1):
         rc = rc1
         # Make folders for number of agents
         swarm_out_dir = out_dir1 / str(len(rc.agents))
@@ -895,15 +895,15 @@ def e2e_parallel(run_config_file_name: str, out_dir: str = None, random_seed=Non
 
         # Stage 2 - robust routes
 
-        robust_paths_dir = out_dir / STAGE_02_ROBUST_PATHS
-        robust_paths_dir.mkdir(parents=True, exist_ok=True)
+        #robust_paths_dir = out_dir / STAGE_02_ROBUST_PATHS
+        #robust_paths_dir.mkdir(parents=True, exist_ok=True)
 
-        tasks = [(robust_paths_dir, grid, max_adv_agent_ds, p) for p in normal_paths_dir.iterdir()]
+        #tasks = [(robust_paths_dir, grid, max_adv_agent_ds, p) for p in normal_paths_dir.iterdir()]
 
-        with multiprocessing.Pool(processes=cores_count) as pool:
-            pool.starmap(_stage_2_normal_robust, tasks)
+        #with multiprocessing.Pool(processes=cores_count) as pool:
+        #    pool.starmap(_stage_2_normal_robust, tasks)
 
-        LOG.info('FINISHED 02 - run Robust Routes on normal paths')
+        #LOG.info('FINISHED 02 - run Robust Routes on normal paths')
 
 
         # #Stage 25 - run kamikaze on robust routes
@@ -969,31 +969,31 @@ def e2e_parallel(run_config_file_name: str, out_dir: str = None, random_seed=Non
 
         # Stage 4 - MDR on robust paths
 
-        mdr_on_robust_paths_dir = out_dir / STAGE_04_MDR_ROBUST_PATHS
-        mdr_on_robust_paths_dir.mkdir(parents=True, exist_ok=True)
+        #mdr_on_robust_paths_dir = out_dir / STAGE_04_MDR_ROBUST_PATHS
+        #mdr_on_robust_paths_dir.mkdir(parents=True, exist_ok=True)
 
-        mdr_on_robust_results_summary = mdr_on_robust_paths_dir / '04-mdr_on_robust_paths-results.csv'
+        #mdr_on_robust_results_summary = mdr_on_robust_paths_dir / '04-mdr_on_robust_paths-results.csv'
 
-        tasks = [(mdr_on_robust_paths_dir, rc, p) for p in robust_paths_dir.iterdir()]
-        with multiprocessing.Pool(processes=cores_count) as pool:
-            results = pool.starmap(_stage_4_robust_mdr, tasks)
+        #tasks = [(mdr_on_robust_paths_dir, rc, p) for p in robust_paths_dir.iterdir()]
+        #with multiprocessing.Pool(processes=cores_count) as pool:
+        #    results = pool.starmap(_stage_4_robust_mdr, tasks)
 
-        if results:
-            with mdr_on_robust_results_summary.open('w', newline='') as fresults:
-                out_csv = csv.DictWriter(fresults, vars(results[0]).keys())
-                out_csv.writeheader()
+        #if results:
+        #    with mdr_on_robust_results_summary.open('w', newline='') as fresults:
+        #        out_csv = csv.DictWriter(fresults, vars(results[0]).keys())
+        #        out_csv.writeheader()
 
-                for row in results:
-                    try:
-                        out_csv.writerow(vars(row))
-                    except Exception:
-                        LOG.warning(f'Failed writing row: {row}', exc_info=True)
+        #        for row in results:
+        #            try:
+        #                out_csv.writerow(vars(row))
+        #            except Exception:
+        #                LOG.warning(f'Failed writing row: {row}', exc_info=True)
 
-                fresults.flush()
+        #        fresults.flush()
 
-        end_time = timeit.default_timer()
-        LOG.info(
-            f'FINISHED 04 - run MDR on robust paths, elapsed:{end_time - start_time:2f} = {datetime.timedelta(seconds=end_time - start_time)}')
+        #end_time = timeit.default_timer()
+        #LOG.info(
+        #    f'FINISHED 04 - run MDR on robust paths, elapsed:{end_time - start_time:2f} = {datetime.timedelta(seconds=end_time - start_time)}')
         del rc1.agents[-1]
 
 def test():
