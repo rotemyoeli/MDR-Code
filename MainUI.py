@@ -126,7 +126,7 @@ class MainUI:
 
         Label(frame, text="Room:").grid(row=0, column=1, sticky=W)
         self.room_file_entry = Entry(frame, width=65)
-        self.room_file_entry.insert(0, str(ROOT_DIR.joinpath(config.room_file_default)))
+        self.room_file_entry.insert(0, map_file_path)
 
         self.room_file_entry.grid(row=0, column=2, sticky=W)
         ttk.Button(frame, text="Browse", command=self.browse_room_file).grid(row=0, column=3, sticky=E, padx=4)
@@ -358,7 +358,7 @@ class MainUI:
                 motion_equation_values = [e.value for e in MotionEquation]
                 motion_equation = ttk.Combobox(self.createRoutesFrame, values=motion_equation_values, width=10)
                 motion_equation.grid(row=curr_row, column=2)
-                motion_equation.current(0)
+                motion_equation.current(3)
                 cols.append(motion_equation)
                 #print(motion_equation.current(), motion_equation.get())
 
