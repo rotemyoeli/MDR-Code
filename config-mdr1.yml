@@ -7,6 +7,10 @@ agents:
   motion_equation: 9
 - id: 3
   motion_equation: 9
-map_file_name: data/Room1_56x55.txt
+- id: 4
+  motion_equation: 9
+- id: 5
+  motion_equation: 9
+map_file_name: data/maze-32-32-4.map
 permutations: 3
 robust_route: 3
