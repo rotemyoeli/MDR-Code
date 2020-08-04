@@ -1,5 +1,5 @@
 agents:
-- damage_steps: 3
+- damage_steps: 5
   id: 1
   is_adversarial: true
   motion_equation: 9
@@ -12,5 +12,5 @@ agents:
 - id: 5
   motion_equation: 9
 map_file_name: data/maze-32-32-4.map
-permutations: 3
-robust_route: 3
+permutations: 2
+robust_route: 5

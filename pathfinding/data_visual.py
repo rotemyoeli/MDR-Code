@@ -1,10 +1,15 @@
 import pathlib
 import pandas as pd
 import matplotlib.pyplot as plt
-from tkinter import Tk
+import tkinter as tk
+from tkinter import ttk
 from tkinter.filedialog import askdirectory
 import glob
 import os
+
+
+
+
 
 # plt.gca().set_color_cycle(['red', 'green', 'blue', 'yellow'])
 
@@ -31,7 +36,7 @@ for filename in paths:
     df2.plot()
     all_data.append(df)
 
-plt.legend(['Agents = 3', 'Agents = 2'], loc='upper left')
+plt.legend(['2-Agents', '3-Agents', '4-Agents', '5-Agents'], loc='upper left')
 plt.ylabel('Time in Sec.')
 plt.xlabel('Number of Damage Steps')
 plt.show()

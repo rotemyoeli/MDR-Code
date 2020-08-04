@@ -947,11 +947,19 @@ def e2e_parallel(run_config_file_name: str, out_dir: str = None, random_seed=Non
 
         mdr_on_normal_results_summary = mdr_on_normal_paths_dir / '03-mdr_on_normal_paths-results.csv'
 
+        #tasks = [
+        #    (mdr_on_normal_paths_dir, adv_agent.id, adv_agent_ds, rc, p) for p in normal_paths_dir.iterdir() for adv_agent
+        #    in
+        #    paths_serializer.load(p).agents for adv_agent_ds in range(1, max_adv_agent_ds + 1)
+        #]
+
         tasks = [
-            (mdr_on_normal_paths_dir, adv_agent.id, adv_agent_ds, rc, p) for p in normal_paths_dir.iterdir() for adv_agent
+            (mdr_on_normal_paths_dir, adv_agent.id, adv_agent_ds, rc, p) for p in normal_paths_dir.iterdir() for
+            adv_agent
             in
             paths_serializer.load(p).agents for adv_agent_ds in range(1, max_adv_agent_ds + 1)
         ]
+
         LOG.debug(f'stage_3 tasks:\n\t' + '\n\t'.join(str(x) for x in tasks))
         with multiprocessing.Pool(processes=cores_count) as pool:
             results = pool.starmap(_stage_3_normal_mdr, tasks)
