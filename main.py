@@ -491,12 +491,14 @@ def gather_results(root_dir: str):
                 [out_csv.writerow(r) for r in rows]
 
 def _stage_1_normal_paths(normal_paths_dir, grid, rc, permutation_idx):
+
     try:
         with benchmark_utils.time_it(f'Building path #{permutation_idx}'):
             LOG.info(f'STARTED permutation {permutation_idx + 1:03d}/{rc.permutations:03d}')
             if permutation_idx > 0:
                 random.shuffle(rc.agents)
             agents = [agent.Agent(**a) for a in rc.agents]
+
 
             with benchmark_utils.time_it() as t:
                 mf = multi_agent_pathfinding.MapfFinder(grid, agents)

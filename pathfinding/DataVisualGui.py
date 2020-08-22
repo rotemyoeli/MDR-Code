@@ -56,7 +56,10 @@ def click_me():
         df = pd.read_csv(filename)
         file_data.append(df)
         frame = pd.concat(file_data, axis=0, ignore_index=True)
-        df2 = frame.groupby(field_x_chosen.get())[field_y_chosen.get()].mean()
+        if operation_chosen.get() == 'mean':
+            df2 = frame.groupby(field_x_chosen.get())[field_y_chosen.get()].mean()
+        else:
+            df2 = frame.groupby(field_x_chosen.get())[field_y_chosen.get()].sum()
         df2.plot()
         #all_data.append(df)
     plt.legend(legend_list, loc='upper left')
